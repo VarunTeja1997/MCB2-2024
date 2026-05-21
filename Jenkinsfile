@@ -2,12 +2,8 @@ pipeline {
 
     agent any
 
-    parameters {
-        choice(
-            choices: ['dev', 'sit', 'prod', 'pt'],
-            description: 'My environment',
-            name: 'ENV'
-        )
+    environment {
+        JAVA_HOME = "/usr/bin/java"
     }
 
     stages {
@@ -24,9 +20,17 @@ pipeline {
 
                     println "myvar1 value is ${var1}"
 
-                    /* accessing parameter variable */
+                    /* parameter variable */
 
                     println "value of my selected environment is ${params.ENV}"
+
+                    /* environment variables */
+
+                    println "my java path is ${env.JAVA_HOME}"
+
+                    /* default Jenkins variables */
+
+                    println "my current workspace is ${WORKSPACE}"
 
                 }
             }
