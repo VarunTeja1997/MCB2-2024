@@ -2,36 +2,26 @@ pipeline {
 
     agent any
 
-    environment {
-        JAVA_HOME = "/usr/bin/java"
-    }
-
     stages {
 
-        stage('git checkout') {
+        stage('working with conditions') {
 
             steps {
 
                 script {
 
-                    println "Hello all welcome to pipelinescripting"
+                    a = 10
+                    b = 20
 
-                    var1 = 20
+                    if (a > b) {
 
-                    println "myvar1 value is ${var1}"
+                        println "value ${a} is big"
 
-                    /* parameter variable */
+                    } else {
 
-                    println "value of my selected environment is ${params.ENV}"
+                        println "value ${b} is big"
 
-                    /* environment variables */
-
-                    println "my java path is ${env.JAVA_HOME}"
-
-                    /* default Jenkins variables */
-
-                    println "my current workspace is ${WORKSPACE}"
-
+                    }
                 }
             }
         }
