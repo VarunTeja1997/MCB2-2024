@@ -4,23 +4,22 @@ pipeline {
 
     stages {
 
-        stage('working with conditions') {
+        stage('working with loops') {
 
             steps {
 
                 script {
 
-                    a = 10
-                    b = 20
+                    for(i=1; i<=5; i++) {
 
-                    if (a > b) {
+                        println "my i value is ${i}"
+                    }
 
-                        println "value ${a} is big"
+                    list1 = ["devops", "aws", "scripting"]
 
-                    } else {
+                    for(ele in list1) {
 
-                        println "value ${b} is big"
-
+                        println "my list element is ${ele}"
                     }
                 }
             }
